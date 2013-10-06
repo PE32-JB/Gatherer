@@ -12,8 +12,4 @@ Une fois le projet terminé, celui-ci est sauvegardé pour servir de modèle.
 Le site sera séparé en plusieurs catégories de projet selon les mots clé qui les référencent.
 Les utilisateurs pourront visionner chaque projet et interagir selon leur statut.
 Une moteur de recherche permet de parcourir les projets selon les catégories.
-Un projet doit contenir :
-• une personne 
-• titre
-• mots clé/tag/catégorie
-• statut (disponibilités, recrutements, avancement)
+Un projet doit contenir une personne, un titre,des mots clé/tag/catégories, un statut (disponibilités, recrutements, avancement).
