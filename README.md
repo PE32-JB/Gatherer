@@ -5,7 +5,7 @@ An application to help the gathering of tutors and project team members./ Une ap
 
 Description du projet  : 
 Une interface qui permet de déposer un projet ou de s'identifier comme une personne. 
-Le site doit permettre de mettre en relation ces projets et ces personnes dans le but de constituer une équipe.
+Le site doit permettre de mettre en relation ces projets et ces personnes dans le but de constituer une équipe.<br>
 Le site doit permettre aux projets de trouver des participants/mentors et les personnes doivent pouvoir initier un projet. On doit pouvoir inviter des gens à participer au projet. 
 Une fois l'équipe constituée, les participants doivent pouvoir interagir entre eux sur un projet et apporter une aide sur d'autres projets. 
 Une fois le projet terminé, celui-ci est sauvegardé pour servir de modèle.
