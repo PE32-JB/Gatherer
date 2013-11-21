@@ -1,0 +1,310 @@
+* {
+	margin: auto;
+	font-family:  Trebuchet MS, Arial, sherif;
+	text-align : justify;
+}
+body {
+	background: #f3ebd1;
+	font-size: 1em;
+}
+
+
+
+#page {
+	margin: auto;
+	padding-top: 25px;
+	width: 1200px;
+}
+
+/* Header*/
+
+header {
+	width: 100%;
+	min-width: 920px;
+	height: 70px;
+	background-color: orange;				/*chgt couleur*/
+	z-index : 2;
+	
+	position: fixed;
+	top: 0px;
+	border-radius: 0px 0px 10px 10px;
+	box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.7);				
+
+}
+
+header h1 {
+	display: inline-block;
+	text-align: center;
+	color: white;
+	size: 50px;
+	line-height: 80px;
+	height: 80px;
+}
+
+#onglets {
+	float: right;
+	height: 24px;
+	margin: 0px 15px;
+}
+
+.onglet {
+	float: right;
+	margin: 0px 5px;
+	height: 20px;
+	width: 100px;
+
+	color: rgba(0, 0, 0, 0.9);
+	text-align: center;
+	line-height: 20px;
+}
+
+.onglet a, .onglet a:hover, .onglet a:visited, .onglet a:active {
+	color: rgba(0, 0, 0, 0.9);
+	display: block;
+	text-decoration: none;
+}
+
+.onglet:hover {
+	padding-top : 20px;
+}
+
+/* Navigateur */
+
+nav {
+	float: left;
+	min-height: 250px;
+	width: 250px;
+	position: fixed;
+	top: 125px;
+	
+
+}
+
+.bloc_nav{
+	display: block;
+	margin-bottom : 30px;
+	background: white;
+	padding : 10px;
+	border-radius: 10px;	
+	box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.7);				
+}
+
+nav h3 {
+	display: block;
+	margin: 10px;
+	text-align: center;
+}
+
+nav ul {
+	background: rgba(100,100,100,0.9);
+	margin: 25px 0px 10px 15px;
+	padding: 0;
+	width: 210px;
+	padding-left: 15px;
+}
+
+nav li {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: 25px;
+	width: 210px;
+	line-height: 25px;
+	text-decoration: none;
+	text-indent: 5px;
+	background: white;
+	color: grey;			/*grey*/
+}
+
+nav li a, nav li a:hover, nav li a:visited, nav li a:active {
+	color: grey;					/*grey*/
+	display: block;
+	text-decoration: none;
+}
+
+nav li a:hover {
+	text-indent: 10px;
+	color: black;
+}
+nav li:hover {
+	background: rgba(255,255,255,0.5);
+}
+
+/* Page Principale*/
+
+section {
+	float: right;
+	width: 920px;
+	min-height: 900px;
+	position: relative;
+	top: 100px;
+	background-color: #ffffff;
+	text-align : justify;
+	z-index : 1;
+	
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 2px rgba(119, 119, 119, 0.6);		
+}
+
+	/* Titre et onglets*/
+#titre_projet,#titre_identite {
+	display: block;
+	margin-top: 10px;
+}
+
+#menu {
+	width: 920px;
+	height: 30px;
+	margin-top: 10px;
+	background-color: rgba(125, 125, 125, 0.8);
+	z-index: 3;
+}
+
+.bouton {			/* Maximum 10boutons */
+	display: inline-block;
+	width: 90px;
+	height: 30px;
+	margin: 0px 1px;
+	text-align: center;
+}
+
+.bouton:hover {
+	height : 60px;
+	padding-top: 30px;
+}
+
+	/* Reste de la page*/
+	
+article{
+	width: 552px;
+	margin : 15px;
+}
+
+#titre_identite{
+	color: blue;
+}
+
+#tronc
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 530px;
+	margin-left: 20px;
+
+}
+
+#carte_identite,#a_propos,#vie_professionelle,#contacts
+{
+	border-top: 3px orange double;
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+}
+
+#carte_identite_infos,#a_propos_infos{
+	border-left: 10px grey solid;
+	padding-left: 10px;
+}
+
+#vie_professionnelle_infos,#contacts_infos{
+	border-right: 10px grey solid;
+	padding-right: 10px;
+	text-align: right;
+}
+
+#tronc h3
+{
+	color: green;
+	text-align: center;
+}
+
+#synthese
+{	
+	display: inline-block;
+	vertical-align: top;
+	width: 290px;
+	padding : 0.5%;
+	margin-left: 20px;
+	margin-top: 20px; 
+	overflow: hidden;
+	background-color : #f3ebd1;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 1px rgba(119, 119, 119, 0.6);
+	padding-bottom: 10px;
+}
+
+#synthese h2
+{
+	color: blue;
+	margin-top: 10px;
+	margin-bottom:10px;
+}
+
+#synthese_infos{
+	color:grey;
+	text-align: center;
+}
+
+#synthese #photo_id
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#video{
+	margin: auto;
+	padding: 20px 15px;
+
+}
+
+.clear {
+	clear: both;
+}
+
+footer {
+	border: 1px solid black;
+	width: 100%;
+	min-width: 920px;
+	height: 50px;
+	position: relative;
+	top: 100px;
+}
+
+/* Titres */
+
+#titre_principal{
+	color : #f3ebd1;
+	font-size: 1.9em;		/*Taille du titre*/
+	font-weight: bold;		/*Titre en gras*/
+	text-align: center;		/*Titre centré*/
+}
+
+#intro{	
+	color: maroon;
+	font-size: 1.3em;
+	font-weight: bold;
+	font-style: italic;
+}
+
+h1{
+	
+	font-size: 1.9em;		/*Taille du titre*/
+	font-weight: bold;		/*Titre en gras*/
+	text-align: center;		/*Titre centré*/
+}
+
+h2{
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align : center;
+}
+
+h3{
+	color: orange;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+
+
