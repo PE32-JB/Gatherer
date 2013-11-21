@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="style.css" />
+        <title>Nom du projet</title>
+    </head>
+	
+	<body>
+		<header>
+			<h1> Project-Gatherer </h1>
+			<div id="onglets">
+				<div class="onglet"> <a href=""> Options </a> </div>
+			</div>
+		</header>
+		
+		<div id="page">
+		
+			<nav>
+				<div class="bloc_nav">
+					<h3> Project-Gatherer </h3>
+					<ul>
+						<li> <a href=""> Accueil </a> </li>
+						<li> <a href=""> Mon Profil </a> </li>
+						<li> <a href=""> Se connecter </a> </li>
+					</ul>
+				</div>
+			
+				<div class="bloc_nav">
+					<h3> Recherche </h3>
+					<ul>
+						<li> <a href=""> Thème</a> </li>
+						<li> <a href=""> Avancement </a> </li>
+						<li> <a href=""> Région </a> </li>
+					</ul>
+				</div>
+			</nav>
+			
+			<section>
+			
+			<h1 id="titre_identite">Mon Profil</h1>
+			<br/><br/>
+			<div id="tronc">
+				<div id="carte_identite"><h3>Carte d'identité</h3><br/><div id="carte_identite_infos">
+					Pseudo<br/>
+					Nom<br/>
+					Prénom<br/>
+					Age<br/>
+					Date de naissance<br/>
+					Pays<br/>
+					Ville actuelle<br/>
+					Nationalité ?<br/>
+					</div><br/></div>
+				<div id="vie_professionelle"><h3>Vie professionelle</h3><br/><div id="vie_professionnelle_infos">
+					Profession/Etudiant<br/>
+					Etudes<br/>
+					Diplômes<br/>
+					Autres<br/></div><br/></div>
+				<div id="a_propos"><h3>A propos de vous</h3><br/><div id="a_propos_infos">
+					Compétences<br/>
+					Centres d'intérêts<br/>
+					Sports<br/>
+					Loisirs<br/>
+					Autres<br/></div><br/></div>
+				<div id="contacts"><h3>Contacts</h3><br/><div id="contacts_infos">
+					E-mail<br/>
+					Téléphone<br/></div><br/></div>
+			</div>
+			
+
+			<aside id="synthese">
+
+			
+				<h2>Essentiel</h2>
+				<p><img src="chat.jpg" alt="ours" id="photo_id"/></p>
+				<div id="synthese_infos">Pseudo<br/>Centres d'intérêts</div>
+
+			</aside>
+	
+	
+
+			</section>
+			<div class="clear"></div>
+		</div>
+		<footer>
+			&nbsp;
+		</footer>
+		
+		<script src="jquery.js"></script>
+		<script src="projet.js"></script>
+		
+	</body>
+</html>
