@@ -1,4 +1,3 @@
-
  
  var fixed = false;		//variable détermine si le menue onglet est fixe ou flottant
  
