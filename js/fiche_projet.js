@@ -1,3 +1,4 @@
+
  
  var fixed = false;		//variable détermine si le menue onglet est fixe ou flottant
  
@@ -36,7 +37,3 @@ function afficher(elem, id) {
 				window.location.hash = '#';
 			});	
 }
-
-/*$( "#presentation" ).show(function() {
-	$(".bouton[value=presentation]").css("background-color","white");})	
-*/
