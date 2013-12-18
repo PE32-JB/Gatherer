@@ -1,0 +1,242 @@
+* {
+	margin: auto;
+	font-family:  Trebuchet MS, Arial, sherif;
+	text-align : justify;
+}
+body {
+	background: #f3ebd1;
+	font-size: 1em;
+}
+
+
+
+#page {
+	margin: auto;
+	padding-top: 25px;
+	width: 1200px;
+}
+
+/* Header*/
+
+header {
+	width: 100%;
+	min-width: 920px;
+	height: 70px;
+	background-color: green;
+	z-index : 2;
+	
+	position: fixed;
+	top: 0px;
+	border-radius: 0px 0px 10px 10px;
+	box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.7);				
+
+}
+
+header h1 {
+	text-align: center;
+	color: white;
+	size: 50px;
+	line-height: 80px;
+	height: 80px;
+}
+
+/* Navigateur */
+
+nav {
+	float: left;
+	min-height: 250px;
+	width: 250px;
+	position: fixed;
+	top: 125px;
+}
+
+.bloc_nav{
+	display: block;
+	margin-bottom : 30px;
+	background: white;
+	padding : 10px;
+	border-radius: 10px;	
+	box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.7);				
+}
+
+nav h3 {
+	display: block;
+	margin: 10px;
+	text-align: center;
+}
+
+nav ul {
+	background: rgba(100,100,100,0.9);
+	margin: 25px 0px 10px 15px;
+	padding: 0;
+	width: 210px;
+	padding-left: 15px;
+}
+
+nav li {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: 25px;
+	width: 210px;
+	line-height: 25px;
+	text-decoration: none;
+	text-indent: 5px;
+	background: white;
+	color: gray;
+}
+
+nav li a, nav li a:hover, nav li a:visited, nav li a:active {
+	color: gray;
+	display: block;
+	text-decoration: none;
+}
+
+nav li a:hover {
+	text-indent: 10px;
+	color: black;
+}
+nav li:hover {
+	background: rgba(255,255,255,0.5);
+}
+
+/* Page Principale*/
+
+section {
+	float: right;
+	width: 920px;
+	min-height: 900px;
+	position: relative;
+	top: 100px;
+	background-color: #ffffff;
+	text-align : justify;
+	z-index : 1;
+	
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 2px rgba(119, 119, 119, 0.6);				
+}
+
+
+	/* Reste de la page*/
+article{
+	width: 572px;
+	margin : 15px;
+	display : none; /* Les cache de base */
+}
+article:nth-of-type(1) { /* N'affiche que le premier à savoir présentation */
+	display: block;
+}
+
+	/*Accordion*/
+
+#accordion {
+	width: 550px;
+}
+
+#accordion h1{
+	background-image: linear-gradient(rgba(200,200,200,0.6), white);
+	border-radius: 5px 5px 0px 0px;
+}
+
+#avancee {
+	min-height: 300px;
+	background-color: rgba(225,225,225,1);
+}
+
+#avancee h3{
+	text-align: center;
+	padding: 10px;
+}
+
+#theme {
+	float:left;
+	padding: 0px 20px;
+
+}
+
+#autre_filtre {
+	border-left:inset rgba(200,200,200,1);
+	float: right;
+	padding: 0px 20px;
+
+}
+
+
+	/*aside*/
+aside{	
+	vertical-align: top;
+	float: right;
+	text-align: left;
+	width: 300px;
+	padding : 0.5%;
+	margin : 25px 15px;
+}
+
+.case{
+	display: block-inline;
+	background-color : #f3ebd1;
+	padding: 15px;
+	margin-bottom : 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 1px rgba(119, 119, 119, 0.6);				
+}
+
+.case h3 {
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+#localisation{
+	max-width:300px;
+}
+
+
+
+
+.clear {
+	clear: both;
+}
+
+footer {
+	border: 1px solid black;
+	width: 100%;
+	min-width: 920px;
+	height: 50px;
+	position: relative;
+	top: 100px;
+}
+
+/* Titres */
+
+#titre_principal{
+	color : #f3ebd1;
+	font-size: 1.9em;		/*Taille du titre*/
+	font-weight: bold;		/*Titre en gras*/
+	text-align: center;		/*Titre centré*/
+}
+
+#intro{	
+	color: green;
+	font-size: 1.3em;
+	font-weight: bold;
+	font-style: italic;
+}
+
+h1{
+	
+	font-size: 1.9em;		/*Taille du titre*/
+	font-weight: bold;		/*Titre en gras*/
+	text-align: center;		/*Titre centré*/
+}
+
+h2{
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align : center;
+}
+
+h3{
+	color: green;
+	font-size: 1.3em;
+	font-weight: bold;
+}
