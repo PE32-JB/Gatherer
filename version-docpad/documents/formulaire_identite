@@ -1,0 +1,65 @@
+---
+title: "identite"
+name: "identite"
+layout: "default"
+isPage: true
+---
+<link rel="stylesheet" href="/styles/identite.css" />
+
+<p>
+	<h3 id="titre_identite">Mon Profil</h3>
+	</p>
+	<div id="tronc">
+		<form method="post" action="traitement.js">				
+			
+			<div id="carte_identite">
+				<h3>Carte d'identité</h3><br/>
+			<div id="carte_identite_infos">
+			
+			<label for "pseudo">Pseudo</label> : <input type="text" name="pseudo" id="pseudo" class="champs_gauche"/><br/><br/>
+			<label for "nom">Nom</label> : <input type="text" name="nom" id="nom" class="champs_gauche"/><br/><br/>
+			<label for "prenom">Prénom</label> : <input type="text" name="prenom" id="prenom" class="champs_gauche"/><br/><br/>
+			<label for "age">Âge</label> : <input type="text" name="age" id="age" class="champs_gauche"/><br/><br/>
+			<label for "date_naissance">Date de naissance</label> : <input type="text" name="date_naissance" id="date_naissance" class="champs_gauche"/><br/><br/>
+			<label for "pays">Pays</label> : <input type="text" name="pays" id="pays" class="champs_gauche"/><br/><br/>
+			<label for "ville">Ville</label> : <input type="text" name="ville" id="ville" class="champs_gauche"/><br/><br/>
+			<label for "nationalite">Nationalité</label> : <input type="text" name="nationalite" id="nationalite" class="champs_gauche"/><br/><br/></div><br/></div>
+			
+			<div id="vie_professionelle">
+				<h3>Vie professionelle</h3><br/>
+			<div id="vie_professionnelle_infos">
+			
+			<label for "profession">Profession</label> : <textarea type="text" name="profession" id="profession" class="champs_droit"/></textarea><br/><br/>
+			<label for "etude">Études</label> : <textarea type="text" name="etude" id="etude" class="champs_droit"/></textarea><br/><br/>
+			<label for "diplome">Diplômes</label> : <textarea type="text" name="diplome" id="diplome" class="champs_droit"/></textarea><br/><br/>
+			<label for "autre">Autres</label> : <textarea type="text" name="autre" id="autre" class="champs_droit"/></textarea><br/><br/></div><br/></div>
+			
+			<div id="a_propos">
+				<h3>Â propos de vous</h3><br/>
+			<div id="a_propos_infos">
+			
+			<label for "competence">Compétences</label> : <textarea type="text" name="competence" id="competence" class="champs_gauche"/></textarea><br/><br/>
+			<label for "interet">Centres d'intérêt</label> : <textarea type="text" name="interet" id="interet" class="champs_gauche"/></textarea><br/><br/>
+			<label for "sport">Sports</label> : <textarea type="text" name="sport" id="sport" class="champs_gauche"/></textarea><br/><br/>
+			<label for "loisir">Loisirs</label> : <textarea type="text" name="loisir" id="loisir" class="champs_gauche"/></textarea><br/><br/>
+			<label for "autre">Autres</label> : <textarea type="text" name="autre" id="autre" class="champs_gauche"/></textarea><br/><br/></div><br/></div>
+			
+			<div id="contacts">
+				<h3>Contacts</h3><br/>
+			<div id="contacts_infos">
+			
+			<label for "mail">E-mail</label> : <input type="text" name="mail" id="mail" class="champs_droit"/><br/><br/>
+			<label for "telephone">Téléphone</label> : <input type="text" name="telephone" id="telephone" class="champs_droit"/><br/><br/></div><br/></div>
+			
+			<input type="submit" value="submit">
+			
+		</form>
+	</div>
+			
+	<aside id="synthese">
+
+		<h2>Essentiel</h2>
+		<p id="photo_id"><img src="" alt="" /></p>
+		<div id="synthese_infos">Pseudo<br/>Compétences</div>
+
+	</aside>
