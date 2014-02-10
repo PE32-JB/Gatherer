@@ -1,0 +1,48 @@
+<html>
+
+<head>
+	<%- @getBlock("meta").toHTML() %>
+	<%- @getBlock("styles").add(["/styles/commun.css"]).toHTML() %>
+</head>
+
+<body>
+	
+	<header>
+		<p id="langue"><a href="">FR</a> | <a href="">EN</a></p>
+		<h1> <a href="/index.html"> Project-Gatherer </h1>
+		
+	</header>
+	
+	<div id="page">
+	
+		<nav>
+			<div class="bloc_nav">
+				<h3> Project-Gatherer </h3>
+				<ul>
+					<li class="liste"> <a href="/index.html"> Accueil </a> </li>
+					<li class="liste" id="clickme"> Se connecter  </li>
+					<form>
+					<li class="connexion"><input type="text" name="identifiant" value="identifiant"></li>
+					<li class="connexion"><input type="text" name="mdp" value="mot de passe"></li>
+					<li class="connexion"><input type="submit" value="se connecter"></li>
+					</form>
+					<li class="liste"> <a href=""> Options </a> </li>			
+				</ul>
+				<form name="input" action="/recherche.html" method="get">	
+							<input type="text" name="recherche" id="recherche">
+							<input type="submit" value="Rechercher">
+						</form> 
+			</div>
+		</nav>
+		<section>
+		<%- @content %>
+		</section>
+		<div class="clear"></div>
+		</div>
+		<footer>
+			&nbsp;
+		</footer>
+
+<%- @getBlock("scripts").add(["/vendor/jquery.js","/scripts/commun.js"]).toHTML() %>
+</body>		
+</html>
