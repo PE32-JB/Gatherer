@@ -1,0 +1,180 @@
+* {
+	margin: auto;
+	font-family:  Trebuchet MS, Arial, sherif;
+	text-align : justify;
+}
+	
+body {
+	background: #f3ebd1;
+	font-size: 1em;
+}
+
+#page{
+	margin: auto;
+	padding-top: 25px;
+	width: 1200px;
+}
+
+/* Header*/
+
+header {
+	width: 100%;
+	min-width: 920px;
+	height: 70px;
+	background-color: green;
+	z-index : 2;
+	position: fixed;
+	top: 0px;
+	border-radius: 0px 0px 10px 10px;
+	box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.7);				
+}
+
+header h1 {
+	width : 300px;
+	text-align: center;
+	size: 50px;
+	line-height: 80px;
+	height: 80px;
+}
+
+header a {
+	text-decoration: none;
+	color: white;
+}
+
+#langue {
+	display : inline;
+	float: left;
+	margin : 45px 10px 0px 10px;
+}
+
+/* Navigateur */
+
+nav {
+	float: left;
+	min-height: 250px;
+	width: 250px;
+	position: fixed;
+	top: 125px;
+}
+
+.bloc_nav {
+	display: block;
+	margin-bottom : 30px;
+	background: white;
+	padding : 10px;
+	border-radius: 10px;	
+	box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.7);				
+}
+
+#recherche {
+	width: 120px;
+	margin : 0px 0px 0px 15px;
+}
+
+.connexion input[type="text"] {
+	color: silver;
+	font-style:italic;
+}
+
+nav h3 {
+	display: block;
+	margin: 10px;
+	text-align: center;
+}
+
+nav h3 a {
+	text-decoration: none;
+	color : green;
+}
+
+nav ul {
+	background: rgba(100,100,100,0.9);
+	margin: 25px 0px 10px 15px;
+	padding: 0;
+	width: 210px;
+	padding-left: 15px;
+}
+
+nav li {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: 25px;
+	width: 210px;
+	line-height: 25px;
+	text-decoration: none;
+	text-indent: 5px;
+	background: white;
+	color: gray;
+}
+
+nav li.liste, nav li.liste:hover, nav li.liste:visited, nav li.liste:active, nav a{
+	color: gray;
+	display: block;
+	text-decoration: none;
+}
+
+nav li.liste:hover {
+	text-indent: 10px;
+	color: black;
+}
+
+nav a:hover{
+	color: black;
+}
+
+nav li.liste:hover {
+	background: rgba(255,255,255,0.5);
+}
+
+
+
+/* Page Principale*/
+
+section {
+	float: right;
+	width: 920px;
+	min-height: 900px;
+	position: relative;
+	top: 100px;
+	background-color: #ffffff;
+	text-align : justify;
+	z-index : 1;
+	
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 2px rgba(119, 119, 119, 0.6);				
+}
+	
+h1{
+	font-size: 1.9em;		
+	font-weight: bold;		
+	text-align: center;		
+}
+
+h2{
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align : center;
+}
+
+h3{
+	color: green;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+/* footer */
+
+.clear {
+	clear: both;
+}
+
+footer{
+	border: 1px solid black;
+	width: 100%;
+	min-width: 920px;
+	height: 50px;
+	position: relative;
+	top: 100px;
+}
