@@ -1,0 +1,113 @@
+---
+title: "Mon projet!"	
+name: "projet"	
+layout: "default"
+isPage: true
+---
+<link rel="stylesheet" href="/styles/recherche.css" />
+
+<html>
+
+<article>		
+	<aside>
+		<ul>
+			<li><img src="/images/img-projet.jpg" onclick="$('#personne').css('display','none'),$('#projet').css('display','block')"></li>
+			<li><img src="/images/img-personne.jpg" onclick="$('#projet').css('display','none'),$('#personne').css('display','block')"></li>
+		</ul>
+	</aside>				
+		<!-- Barre de recherche : projet -->
+	<ul id="projet">
+		<h1> Rechercher un projet </h1>
+		<li id="theme">
+			<ul>
+				<li>	<!-- barre de recherche par mot-clef -->					
+					<form name="input" action="/recherche.html" method="get">	
+						<input type="search" name="recherche" value="mot-clef" onblur="if (this.value=='') this.value = 'mot-clef'" 
+    onfocus="if (this.value=='mot-clef') this.value = ''">
+						<input type="submit" value="Rechercher">
+					</form> 
+				</li>
+				<li id="theme_ligne2">
+					<form>
+						<ul>
+							<li>	<!-- Liste non-exhaustive de thème -->	
+								<input type="checkbox" name="informatique"> Informatique<br>
+								<input type="checkbox" name="ecologie"> Écologie<br>
+								<input type="checkbox" name="sport"> Sport<br>
+								<input type="checkbox" name="art"> Art<br>
+							</li>
+							<li>
+								<input type="checkbox" name="design"> Design<br>
+								<input type="checkbox" name="film"> Film<br>
+								<input type="checkbox" name="film"> Film<br>
+								<input type="checkbox" name="film"> Film<br>
+							</li>
+						</ul>
+				
+					</form>
+				</li>
+				<li id="theme_ligne3">
+					<form>
+						<ul>
+							<li>	<!-- Liste exhaustive de thème -->
+								<select>
+									  <option value="mot-clef1" selected>mot-clef1</option>
+									  <option value="mot-clef2">mot-clef2</option>
+									  <option value="mot-clef3">mot-clef3</option>
+									  <option value="mot-clef4">mot-clef4</option>
+								</select>
+							</li>
+							<li>
+								<textarea readonly>
+
+										<!-- écrire un script pour que l'élément séléctionné aille dans la zone -->
+
+								</textarea>
+							</li>
+						</ul>
+					</form>
+				</li>	
+			</ul>	
+		</li>
+				
+		<li id="autre_filtre">
+			<h3> Filtre </h3>
+			<form>Avancement :<br>
+				<input type="radio" name="avancement" value="1">Idée<br>
+				<input type="radio" name="avancement" value="2">Recherche d'équipe<br>
+				<input type="radio" name="avancement" value="3">En cours<br>
+				<input type="radio" name="avancement" value="4">Lancement<br><br>
+			</form>							
+			<form>Filtre :<br>
+				<input type="checkbox" name="filtre" value="1">Recherche un nouveau membre<br>
+				<input type="checkbox" name="filtre" value="2">Autre filtre<br>
+			</form>
+			<form>
+				<input type="submit" value="submit">
+			</form>			
+		</li>
+	</ul>		
+	
+		<!-- Barre de recherche : personne -->
+		
+	<ul id="personne">
+		<h1> Rechercher quelqu'un </h1>	
+		<li>
+			<!-- Remplir les différents critères de recherche -->
+		</li>
+		<li>
+			<table id="liste_personne">
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</li>	
+	</ul>
+</article>
+
+</html>
