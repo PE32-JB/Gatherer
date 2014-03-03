@@ -20,16 +20,19 @@
 				<h3> Project-Gatherer </h3>
 				<ul>
 					<li class="liste"> <a href="/index.html"> Accueil </a> </li>
-					<li class="liste" id="clickme"> Se connecter  </li>
-					<form>
-					<li class="connexion"><input type="text" name="identifiant" value="identifiant"></li>
-					<li class="connexion"><input type="text" name="mdp" value="mot de passe"></li>
-					<li class="connexion"><input type="submit" value="se connecter"></li>
+					<li class="liste" id="clickme" style="cursor:pointer"> Se connecter  </li>
+					<form id="connexion">
+					<li><input type="text" value="mot de passe" name="mdp" onblur="if (this.value=='') this.value = 'mot de passe'" 
+    onfocus="if (this.value=='mot de passe') this.value = ''"></li>
+    
+					<li><input type="text" value="identifiant" name="id" onblur="if (this.value=='') this.value = 'identifiant'" 
+    onfocus="if (this.value=='identifiant') this.value = ''"></li>
+					<li><input type="submit" value="se connecter"></li>
 					</form>
 					<li class="liste"> <a href=""> Options </a> </li>			
 				</ul>
 				<form name="input" action="/recherche.html" method="get">	
-							<input type="text" name="recherche" id="recherche">
+							<input type="search" name="recherche" id="recherche">
 							<input type="submit" value="Rechercher">
 						</form> 
 			</div>
