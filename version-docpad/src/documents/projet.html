@@ -4,8 +4,9 @@ name: "projet"
 layout: "default"
 isPage: true
 ---
+<head>
 <link rel="stylesheet" href="/styles/projet.css" />
-
+</head>
 <html>
 	<h1 id="titre_projet">Mon projet</h1>
 	
@@ -22,7 +23,10 @@ isPage: true
 		
 	<aside>
 		<div class="case">
-			<h2>Statut du projet (début, ...)</h2>
+			<canvas id="mon_canvas" width="250" height="50"> 
+			<script src="/scripts/canvas.js"></script>
+			</canvas>
+			
 			<h3>Recherche :</h3>
 				<ul>
 				<li>Un informaticien</li>
