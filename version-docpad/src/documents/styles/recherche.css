@@ -9,45 +9,63 @@
 
 	/* Reste de la page*/
 article{
-	width: 572px;
-	margin : 15px;
-	display : none; /* Les cache de base */
-}
-article:nth-of-type(1) { /* N'affiche que le premier à savoir présentation */
-	display: block;
-}
-
-	/*Accordion*/
-
-.accordion {
-	width: 550px;
-}
-
-.accordion h1{
-	background-image: linear-gradient(rgba(200,200,200,0.6), white);
-	border-radius: 5px 5px 0px 0px;
-}
-
-.avancee {
-	min-height: 300px;
+	width: 880px;
+	height : 350px;
+	margin : 20px;
+	border : solid 1px;
 	background-color: rgba(225,225,225,1);
 }
 
-.avancee h3{
-	text-align: center;
-	padding: 10px;
+
+article h1 {
+	margin : auto;
+	margin : 15px 0px;
 }
+
 
 	/*Recherche projet*/
 
 #projet {
-
+	height : 350px;
 }
-	
+
+#projet ul{
+	padding: 0px;
+	list-style-type: none; 
+}
+
+#projet li {
+	display : inline-block;
+	width : 345px;
+	overflow : hidden;
+	margin: 10px 0px;
+}
+
 #theme {
 	float:left;
 	padding: 0px 20px;
 
+}
+
+#theme_ligne2 {
+	height : 30%;
+}
+
+#theme_ligne2 li {
+	width : 45%;
+}
+
+#theme_ligne3 {
+	height : 30%;
+}
+
+#theme_ligne3 li {
+	width : 45%;
+	vertical-align : top;
+}
+
+#theme_ligne3 select {
+	width : 150px;
 }
 
 #autre_filtre {
@@ -60,34 +78,36 @@ article:nth-of-type(1) { /* N'affiche que le premier à savoir présentation */
 	/*Recherche personne*/
 	
 #personne {
-
+	height : 350px;
+	display : none;
 }
 
+#personne li {
+	display : inline-block;
+	width : 345px;
+}
 
 	/*aside*/
 aside{	
-	vertical-align: top;
-	float: right;
+	float: left;
 	text-align: left;
-	width: 300px;
+	width: 75px;
 	padding : 0.5%;
-	margin : 25px 15px;
+	margin : 90px 15px 90px -2px;
+	line-height :80px;
+	border : solid 1px;
+		border-left : none;
+	border-radius: 0px 10px 10px 0px;
+	box-shadow :2px 2px 2px 0px;
+	background-color: white;
 }
 
-.case{
-	display: block-inline;
-	background-color : #f3ebd1;
-	padding: 15px;
-	margin-bottom : 20px;
-	border-radius: 10px;
-	box-shadow: 0px 0px 10px 1px rgba(119, 119, 119, 0.6);				
+aside ul{
+	padding: 0px;
+	list-style-type: none; 
 }
 
-.case h3 {
-	text-align: center;
-	margin-bottom: 15px;
-}
-
-#localisation{
-	max-width:300px;
+aside li img {
+	margin: 5px 2px;
+	vertical-align : bottom;
 }
