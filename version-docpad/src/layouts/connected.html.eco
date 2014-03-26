@@ -1,0 +1,63 @@
+<html>
+
+<head>
+	<%- @getBlock("meta").toHTML() %>
+	<%- @getBlock("styles").add(["/styles/commun.css"]).toHTML() %>
+</head>
+
+<body>
+	
+	<header>
+		<p id="langue"><a href="">FR</a> | <a href="">EN</a></p>
+		<h1> <a href="/index.html"> Project-Gatherer </a></h1>
+	</header>
+	
+	<div id="barre">
+		<ul>
+			<li><img src="/images/logo.png" alt="" /></li>
+			<li><img src="/images/logo.png" alt="" /></li>
+			<li><img src="/images/logo.png" alt="" /></li>
+			<li><img src="/images/logo.png" alt="" /></li>
+			<li><img src="/images/logo.png" alt="" /></li>
+		</ul>
+	</div>
+	
+	<div id="page">
+	
+		<nav>
+			<div class="bloc_nav">
+				<h3> Project-Gatherer </h3>
+				<ul>
+					<li class="liste"> <a href="/index.html"> Accueil </a> </li>
+					<li class="liste"> <a href="/projet.html"> Mes projets </a> </li>
+					<li class="liste"> <a href="/identite.html"> Mon compte </a> </li>
+					<li class="liste" id="click" style="cursor:pointer"> Style  </li>
+						<div id="colorer" style="display:none">
+						<li> </label><input class="color" value="66ff00" onchange="color1=this.color.toString(); updateGradient()"/></li>
+						<li> </label><input class="color" value="66ff00" onchange="color2=this.color.toString(); updateGradient()"/></li>
+						</div>
+					<li class="liste"> <a href="/layout/default.html.eco"> Se déconnecter </a> </li>
+					<li class="liste"> <a href=""> Options </a> </li>			
+				</ul>
+				<form name="input" action="/recherche.html" method="get">	
+							<input type="search" name="recherche" id="recherche">
+							<input type="submit" value="Rechercher">
+						</form> 
+			</div>
+			
+		</nav>
+		<section>
+		<%- @content %>
+		</section>
+		<div class="push"></div>
+	</div>
+	
+
+	
+	<footer>
+		<!--&nbsp;-->
+	</footer>
+
+<%- @getBlock("scripts").add(["/vendor/jquery.js","/scripts/commun.js","/vendor/jscolor.js"]).toHTML() %>
+</body>		
+</html>

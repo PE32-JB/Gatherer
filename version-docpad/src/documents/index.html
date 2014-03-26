@@ -1,7 +1,7 @@
 ---
 title: "accueil"
 name: "accueil"
-layout: "default"
+layout: "connected"
 isPage: true
 ---
 <head>
@@ -11,7 +11,7 @@ isPage: true
 <!-- 1ière ligne -->			
 
 
-<ul class="ligne">
+<ul class="ligne" class="gradient">
 <h2>Les derniers projets</h2>
 	<li>						
 		<a href="/projet.html">
@@ -76,7 +76,7 @@ isPage: true
 
 <!-- 2ième ligne -->	
 				
-<ul class="ligne">
+<ul class="ligne" class="gradient">
 <h2>Projets terminés</h2>
 	<li>						
 		<a href="/projet.html">
@@ -141,7 +141,7 @@ isPage: true
 
 	<!-- 3ième ligne -->	
 				
-<ul class="ligne">
+<ul class="ligne" class="gradient">
 <h2>Les coups de coeur</h2>
 	<li>						
 		<a href="/projet.html">
@@ -205,25 +205,5 @@ isPage: true
 </ul>
 
 <script src="/vendor/jquery.js"></script>
-<script>
-$("li").hover(function(){
-	$(".text", this).stop( true, true ).animate({
-		bottom:'+=120px',
-		opacity:'0.8',
-	}, "slow");
-	$(".text p", this).stop( true, true ).css({
-		height:'+=120px',
-        display:'block',
-    }, "swing")
-},function(){
-	$(".text", this).stop( true, true ).animate({
-		bottom:'-=120px',
-		opacity:'1',
-	}, "slow");
-	$(".text p", this).stop( true, true ).css({
-		height:'-=120px',
-        display:'none',
-    }, "swing")
-});
-</script>
+<script src="/scripts/accueil.js"></script>
 </html>

@@ -12,7 +12,7 @@ isPage: true
 	<aside>
 		<ul>
 			<li><img src="/images/img-projet.jpg" onclick="$('#personne').css('display','none'),$('#projet').css('display','block')"></li>
-			<li><img src="/images/img-personne.jpg" onclick="$('#projet').css('display','none'),$('#personne').css('display','block')"></li>
+			<li><img src="/images/img-personne.png" onclick="$('#projet').css('display','none'),$('#personne').css('display','block')"></li>
 		</ul>
 	</aside>				
 		<!-- Barre de recherche : projet -->
@@ -60,7 +60,7 @@ isPage: true
 							<li>
 								<textarea readonly>
 
-										<!-- écrire un script pour que l'élément séléctionné aille dans la zone -->
+										
 
 								</textarea>
 							</li>
@@ -71,20 +71,10 @@ isPage: true
 		</li>
 				
 		<li id="autre_filtre">
-			<h3> Filtre </h3>
-			<form>Avancement :<br>
-				<input type="radio" name="avancement" value="1">Idée<br>
-				<input type="radio" name="avancement" value="2">Recherche d'équipe<br>
-				<input type="radio" name="avancement" value="3">En cours<br>
-				<input type="radio" name="avancement" value="4">Lancement<br><br>
-			</form>							
-			<form>Filtre :<br>
-				<input type="checkbox" name="filtre" value="1">Recherche un nouveau membre<br>
-				<input type="checkbox" name="filtre" value="2">Autre filtre<br>
-			</form>
-			<form>
-				<input type="submit" value="submit">
-			</form>			
+			<canvas id="mon_canvas" width="250" height="80"> 
+				<script src="/scripts/canvas.js"></script>
+			</canvas>
+
 		</li>
 	</ul>		
 	

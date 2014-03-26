@@ -9,8 +9,7 @@
 	
 	<header>
 		<p id="langue"><a href="">FR</a> | <a href="">EN</a></p>
-		<h1> <a href="/index.html"> Project-Gatherer </h1>
-		
+		<h1> <a href="/index.html"> Project-Gatherer </a></h1>
 	</header>
 	
 	<div id="page">
@@ -20,8 +19,9 @@
 				<h3> Project-Gatherer </h3>
 				<ul>
 					<li class="liste"> <a href="/index.html"> Accueil </a> </li>
+					<li class="liste"> <a href="/identite.html"> Créer un compte </a> </li>
 					<li class="liste" id="clickme" style="cursor:pointer"> Se connecter  </li>
-					<form id="connexion">
+					<form id="connexion" action="/layouts/connected.html.eco" method="get">
 					<li><input type="text" value="mot de passe" name="mdp" onblur="if (this.value=='') this.value = 'mot de passe'" 
     onfocus="if (this.value=='mot de passe') this.value = ''"></li>
     
@@ -36,15 +36,19 @@
 							<input type="submit" value="Rechercher">
 						</form> 
 			</div>
+
 		</nav>
 		<section>
 		<%- @content %>
 		</section>
-		<div class="clear"></div>
-		</div>
-		<footer>
-			&nbsp;
-		</footer>
+		<div class="push"></div>
+	</div>
+	
+
+	
+	<footer>
+		<!--&nbsp;-->
+	</footer>
 
 <%- @getBlock("scripts").add(["/vendor/jquery.js","/scripts/commun.js"]).toHTML() %>
 </body>		
