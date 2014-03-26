@@ -8,10 +8,7 @@ isPage: true
 <link rel="stylesheet" href="/styles/projet.css" />
 </head>
 <html>
-	<div id="titre">
 	<h1 id="titre_projet">Mon projet</h1>
-	<button id="work" type="button"></button>
-	</div>
 	
 	<div id="menu">
 		<input class="bouton active" type="button" value='presentation' onclick='afficher(this, "presentation")'/>	<!-- actionne "afficher" de js quand on clique dessus -->
@@ -20,42 +17,22 @@ isPage: true
 		<input class="bouton" type="button" value='agenda' onclick='afficher(this, "agenda")'/>
 		<input class="bouton" type="button" value='dropdoc' onclick='afficher(this, "dropdoc")'/>
 		<input class="bouton" type="button" value='dispo' onclick='afficher(this, "dispo")'/>
-		<input class="bouton" type="button" value='discussion' onclick='afficher(this, "discussion")'/>			
-		<input class="bouton" type="button" value='diaporama' onclick='afficher(this, "diaporama")'/>			
-	</div>
+		<input class="bouton" type="button" value='discussion' onclick='afficher(this, "discussion")'/>
+				
+		</div>
 		
 	<aside>
 		<div class="case">
-			<canvas id="mon_canvas" width="250" height="80"> 
+			<canvas id="mon_canvas" width="250" height="50"> 
 			<script src="/scripts/canvas.js"></script>
 			</canvas>
 			
-				
-				<h3>L'Équipe</h3>
-				<div class="accordeon">
-					<p><a href="/identite.html">Élodie</a></p>
-					<p><a href="/identite.html">François<span><img src="/images/identite.jpg" alt="" /></span></a></p>
-					<p><a href="/identite.html">Aymeric</a></p>
-					<p><a href="/identite.html">Guillaume</a></p>
-					<p><a href="/identite.html">Jean-Baptiste</a></p>
-				<div>
-
-			<h3>Ecole Centrale de Lyon</h3>
-			
-				<h3>Thèmes</h3>
-				<div class="accordeon">
-					<p>Informatique</p>
-					<p>Gestion de projet</p>
-					<p>Projet scolaire</p>
-				</div>
-			
-			
-				<h3>Recherche</h3>
-				<div class="accordeon">
-					<p>L'amour</p>
-					<p>Developpeur node</p>
-				</div>
-			
+			<h3>Recherche :</h3>
+				<ul>
+				<li>Un informaticien</li>
+				<li>Un étudiant</li>
+				</ul>
+			<h3>Projet de :  <a href="fiche_presentation.html"> Bob </a></h3>
 		</div>
 
 	</aside>
@@ -119,18 +96,7 @@ isPage: true
 	
 	<article id="dispo">	
 	<p> Ici il y aura un équivalent à dispo / doodle ... </p>
+
 	</article>	
-	
-	<article id="discussion">	
-	
-	</article>	
-	
-	<article id="diaporama">	
-		<div id="slide">
-			<h1 id="start"> Gatherer </h1>
-		</div>
-	</article>	
-	
-	<script src="/vendor/jquery.js"></script>
-	<script src="/scripts/projet.js"></script>
+
 </html>

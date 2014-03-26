@@ -4,21 +4,13 @@
 	text-align : justify;
 }
 	
-a {
-	text-decoration : none;
-	color : black
-}
-	
 body {
-	background: linear-gradient(to right, rgba(178, 190, 190, 0.8), rgba(240, 240, 240, 0.3), rgba(178, 190, 190, 0.8));
+	background: #f3ebd1;
 	font-size: 1em;
-	height : 100%;
 }
 
 #page{
-	min-height: 100%;
 	margin: auto;
-		margin-bottom : 100px;
 	padding-top: 25px;
 	width: 1200px;
 }
@@ -29,7 +21,7 @@ header {
 	width: 100%;
 	min-width: 920px;
 	height: 70px;
-	background-color: rgba(230, 230, 230, 0.8);
+	background-color: green;
 	z-index : 2;
 	position: fixed;
 	top: 0px;
@@ -43,17 +35,16 @@ header h1 {
 	size: 50px;
 	line-height: 80px;
 	height: 80px;
-	float : left;
 }
 
 header a {
 	text-decoration: none;
-	color: black;
+	color: white;
 }
 
 #langue {
 	display : inline;
-	float: right;
+	float: left;
 	margin : 45px 10px 0px 10px;
 }
 
@@ -81,11 +72,7 @@ nav {
 	margin : 0px 0px 0px 15px;
 }
 
-#connexion{
-	display: none;
-}
-
-#connexion input[type="text"] {
+.connexion input[type="text"] {
 	color: silver;
 	font-style:italic;
 }
@@ -142,6 +129,7 @@ nav li.liste:hover {
 }
 
 
+
 /* Page Principale*/
 
 section {
@@ -149,7 +137,6 @@ section {
 	width: 920px;
 	min-height: 900px;
 	position: relative;
-	margin-bottom: 100px;
 	top: 100px;
 	background-color: #ffffff;
 	text-align : justify;
@@ -177,62 +164,17 @@ h3{
 	font-weight: bold;
 }
 
-/* barre d'outil*/
-
-#barre {
-	display : inline-block;
-	position : fixed;
-		top : 200px;
-		right : 0px;
-	min-height : 350px;
-	width : 60px;	
-	margin-right : 20px;
-	
-	border-radius : 10px;
-	background : linear-gradient(to left, rgba(170, 170, 170, 0.3), rgba(120,120,120,0.3));
-	box-shadow : 1px 1px 1px 1px rgba(170,170,170,0.3) inset,
-				1px 1px 1px 1px rgba(10,10,10,0.3);
-	transition : all 400ms 100ms;	/*La barre met 100ms a revenir à l'état normal*/
-}
-
-#barre:hover {
-	transform: scale(1.01);
-	background : linear-gradient(to left, rgba(170, 170, 170, 0.8), rgba(120,120,120,0.8));
-	box-shadow : 1px 1px 1px 1px rgba(170,170,170,0.8) inset,
-				1px 1px 1px 1px rgba(10,10,10,0.8);
-	transition: all 400ms ease;
-}
-
-#barre ul {
-	padding:10px 0px;
-}
-
-#barre li {
-	cursor: pointer;
-	list-style-type : none;
-	height : 60px;
-	width : 60px;
-	margin-top: 5px;
-	transition: all 300ms 100ms;
-	opacity : 0.8;
-}
-
-#barre li:hover, #barre li:focus {
-	transform: scale(1.4);
-	opacity: 1;
-	padding:10px 5px;
-	transition: all 300ms;
-}
-
 /* footer */
 
-.push {
-	clear:both;
+.clear {
+	clear: both;
 }
 
 footer{
 	border: 1px solid black;
 	width: 100%;
 	min-width: 920px;
-	height: 100px;
+	height: 50px;
+	position: relative;
+	top: 100px;
 }

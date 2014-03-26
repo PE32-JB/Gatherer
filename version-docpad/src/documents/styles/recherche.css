@@ -7,11 +7,6 @@
 	background-color : rgba(230,230,230,1);
 }
 
-input[type="search"] {
-	color: grey;
-	font-style:italic;
-}
-
 	/* Reste de la page*/
 article{
 	width: 880px;
@@ -24,14 +19,14 @@ article{
 
 article h1 {
 	margin : auto;
-	padding-top: 10px;
+	margin : 15px 0px;
 }
 
 
 	/*Recherche projet*/
 
 #projet {
-	height : 350px;	
+	height : 350px;
 }
 
 #projet ul{
@@ -49,7 +44,7 @@ article h1 {
 #theme {
 	float:left;
 	padding: 0px 20px;
-	border-right:inset rgba(200,200,200,1);
+
 }
 
 #theme_ligne2 {
@@ -73,17 +68,12 @@ article h1 {
 	width : 150px;
 }
 
-
-
 #autre_filtre {
+	border-left:inset rgba(200,200,200,1);
 	float: right;
 	padding: 0px 20px;
-}
 
-#autre_filtre canvas {
-	margin : auto;
 }
-
 
 	/*Recherche personne*/
 	
