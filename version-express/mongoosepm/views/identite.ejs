@@ -1,0 +1,67 @@
+<head>
+<link rel="stylesheet" href="identiteCss" />
+</head>
+
+<h1>Mon Profil</h1>
+
+<aside id="synthese">
+	<img src="imagesIdentite" alt="" />
+	<div id="compte">
+		haut : </label><input class="color" value="66ff00" onchange="color1=this.color.toString(); updateGradient()"/><br>
+		bas : </label><input class="color" value="66ff00" onchange="color2=this.color.toString(); updateGradient()"/>
+		<form id="password">
+		Mot de passe: <input type="password" name="password"><br>
+		Confirmer : <input type="password" name="password">
+		</form>
+	</div>
+</aside>
+
+<form method="post" action="identiteTraitement" id="formulaire">				
+	<fieldset id="donnees_perso">
+		<legend>Données personnelles</legend>
+		<label for "nom">Nom</label><input type="text" name="nom"/><br/><br/>
+		<label for "prenom">Prénom</label><input type="text" name="prenom"/><br/><br/>
+		<label for "date_naissance">Date de naissance</label>
+			<input list="jour" type="number" name="jour" id="jour"/>
+			<input list="mois" type="text" name="mois" id="mois"/>
+			<input list="annee" type="number" name="annee" id="annee"/>
+			<br/><br/>
+		<label for "pays">Pays</label><input type="text" name="pays" id="pays"/><br/><br/>
+		<label for "ville">Ville</label><input type="text" name="ville" id="ville"/><br/><br/>
+		<label for "e-mail">E-mail</label><input type="mail" name="e-mail" id="e-mail"/><br/><br/>
+		<label for "tel">Tel</label><input type="tel" name="tel" id="tel"/><br/><br/>
+	</fieldset>
+			
+	<fieldset id="centre_interet">
+		<legend>Centre d'intérêt</legend>
+		<label for "competence">Compétences</label> : <textarea type="text" name="competence" id="competence" class="champs_gauche"/></textarea>
+		<br/><br/>
+		<label for "interet">Centres d'intérêt</label> : <textarea type="text" name="interet" id="interet" class="champs_gauche"/></textarea>
+		<br/><br/>
+		<label for "sport">Sports</label> : <textarea type="text" name="sport" id="sport" class="champs_gauche"/></textarea><br/><br/>
+		<label for "loisir">Loisirs</label> : <textarea type="text" name="loisir" id="loisir" class="champs_gauche"/></textarea><br/><br/>
+		<label for "autre">Autres</label> : <textarea type="text" name="autre" id="autre" class="champs_gauche"/></textarea><br/><br/>
+	</fieldset>
+	
+			
+	<fieldset id="vie_professionelle">
+		<legend>Vie professionelle</legend><br/>			
+		<label for "profession">Profession</label> : <textarea type="text" name="profession" id="profession" class="champs_droit"/></textarea><br/><br/>
+		<label for "etude">Études</label> : <textarea type="text" name="etude" id="etude" class="champs_droit"/></textarea><br/><br/>
+		<label for "diplome">Diplômes</label> : <textarea type="text" name="diplome" id="diplome" class="champs_droit"/></textarea><br/><br/>
+		<label for "autre">Autres</label> : <textarea type="text" name="autre" id="autre" class="champs_droit"/></textarea><br/><br/>
+	</fieldset>
+	
+	<input id="submit" type="submit" value="submit">
+			
+</form>
+
+<script type="text/javascript" src="/jscolor"></script>
+<script type="text/javascript" src="/identiteJs"></script>
+
+	
+<datalist id="jour">
+<option value="1"><option value="2"><option value="3"><option value="4"><option value="5"><option value="6"><option value="7"><option value="8"><option value="9"><option value="10"><option value="11"><option value="12"><option value="13"><option value="14"><option value="15"><option value="16"><option value="17"><option value="18"><option value="19"><option value="20"><option value="21"><option value="22"><option value="23"><option value="24"><option value="25"><option value="26"><option value="27"><option value="28"><option value="29"><option value="30"><option value="31">
+</datalist>
+ 
+ 

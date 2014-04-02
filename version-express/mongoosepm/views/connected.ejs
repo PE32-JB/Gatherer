@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	<link rel="stylesheet" href="/communCss">
+</head>
+
+<body>
+	
+	<header>
+		<p id="langue"><a href="">FR</a> | <a href="">EN</a></p>
+		<h1> <a href="/"> Project-Gatherer </a></h1>
+	</header>
+	
+	<div id="barre">
+		<ul>
+			<li><img src="/logo" alt="" /></li>
+			<li><img src="/logo" alt="" /></li>
+			<li><img src="/logo" alt="" /></li>
+			<li><img src="/logo" alt="" /></li>
+			<li><img src="/logo" alt="" /></li>
+		</ul>
+	</div>
+	
+	<div id="page">
+	
+		<nav>
+			<div class="bloc_nav">
+				<h3> Project-Gatherer </h3>
+				<ul>
+					<li class="liste"> <a href="/index"> Accueil </a> </li>
+					<li class="liste"> <a href="/projet"> Mes projets </a> </li>
+					<li class="liste"> <a href="/identite"> Mon compte </a> </li>
+					<li class="liste" id="click" style="cursor:pointer"> Style  </li>
+						<div id="colorer" style="display:none">
+						<li> <input class="color" value="66ff00" onchange="color1=this.color.toString(); updateGradient()"/></li>
+						<li> <input class="color" value="66ff00" onchange="color2=this.color.toString(); updateGradient()"/></li>
+						</div>
+					<li class="liste"> <a href="/index_default"> Se déconnecter </a> </li>
+					<li class="liste"> <a href=""> Options </a> </li>			
+				</ul>
+				<form name="input" action="/recherche" method="get">	
+							<input type="search" name="recherche" id="recherche">
+							<input type="submit" value="Rechercher">
+						</form> 
+			</div>
+			
+		</nav>
+		<section>
+		<%- body %>
+		</section>
+		<div class="push"></div>
+	</div>
+	
+	<footer>
+		<!--&nbsp;-->
+	</footer>
+
+	<script src="/jquery"></script>
+	<script src="/communJs"></script>
+	<script src="/jscolor"></script>
+
+
+</body>		
