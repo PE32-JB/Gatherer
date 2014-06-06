@@ -1,421 +1,127 @@
-
 /*
  * GET home page.
  */
  
- 
 var fs=require("fs");
+var userSchema = require('../model/userSchema'); // appel du modèle mongoose utilisateur 
+var projectSchema = require('../model/projectSchema'); // appel du modèle mongoose projet
 
-exports.index_connected = function(req, res){
+
+
+/*	**************
+	A LA CONNEXION
+	**************	*/
+/*	Renvoie l'accueil connecté ou pas selon les cookies	*/
+exports.index = function(req, res) {
+	if(req.session.loggedIn === true) {res.redirect('/index_connected');}		//S'il est loggé on renvoie index_connecté
+	else {res.redirect('/index_default');}							//S'il est pas loggé on renvoie index_default
+};
+	
+/*accueil non-connectée*/
+exports.index_default = function(req, res){ // appel de la page index lorsqu'on est déconnecté
 	console.log("une requete pr /");
-	res.render('index.ejs', function(err,html){
+	res.render('index', function(err,html){	// 1er rendu de l'index
 		var data={
 		title: 'Accueil',
 		body: html
 		};
-	res.render('connected.ejs', data);
+	res.render('default', data); // 2nd rendu avec le layout correspondant au profil déconnecté appelé en callback
 		});
 };
 
-exports.communCss = function(req,res){
-	console.log("une requete pr le css commun");
-	fs.readFile("./public/stylesheets/commun.css","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/css"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.communJs = function(req,res){
-	console.log("une requete pr le js de commun");
-	fs.readFile("./public/javascripts/commun.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.accueilCss = function(req,res){
-	console.log("une requete pr le css d'accueil");
-	fs.readFile("./public/stylesheets/accueil.css","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/css"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.imagesNode = function(req,res){
-	fs.readFile("./public/images/nodejs.jpg","binary",function(error,file){
-	if(error){
-		console.log("ERREUR pr imagesNode");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"image/jpeg"});
-		res.write(file,"binary");
-		res.end();
-	}
-	})
-};
-
-
-exports.jquery = function(req,res){
-	console.log("une requete pr le jquery");
-	fs.readFile("./public/javascripts/jquery/js/jquery.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.jqueryui = function(req,res){
-	console.log("une requete pr le jquery_ui");
-	fs.readFile("./public/javascripts/jquery/js/jqueryui.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.accueilJs = function(req,res){
-	console.log("une requete pr le js d'accueil");
-	fs.readFile("./public/javascripts/accueil.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.identite = function(req, res){
-	console.log("une requete pr identite");
-	res.render('identite.ejs', function(err,html){
+/*accueil connecté*/
+exports.index_connected = function(req, res){	// appel de la page index lorsqu'on est connecté
+	console.log("une requete pr /");
+	res.render('index', {user:req.session.user, userID: req.session.user._id}, function(err,html){	// on récupère les infos de l'utilisateur connecté et ouvre la page
 		var data={
-		title: 'Page personnelle',
+		title: 'Accueil',
 		body: html
 		};
-	res.render('default.ejs', data);
+	res.render('connected', data);	// 2nd rendu en appelant le layout correspondant au profil connecté appelé en callback
 		});
 };
 
-exports.identiteCss = function(req,res){
-	console.log("une requete pr le css d'identite");
-	fs.readFile("./public/stylesheets/identite.css","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
+/*	************
+	LOGIN LOGOUT
+	************	*/
+	
+/*	Se connecter	*/
+exports.doLogin = function (req, res) {
+	if(req.body.mail) {											//Si ce qui est dans la case est bien un email
+		userSchema.User.findOne({'mail':req.body.mail},function(err, user) {	//On recherche un utilisaeur (inscrit)
+			if(!err) {											//S'il n'y a pas d'erreur
+				if(!user) {										//S'il n'y a pas d'utilisateur trouvé
+					res.redirect('/index_default?404=user');	//On renvoie sur la page d'accueil avec une erreur
+				}else{											//Si on trouve un utilisateur
+					req.session.user = user;					//On met ses données dans un cookie de session
+					req.session.loggedIn = true;				//On le considère connecté
+					console.log(user + "s'est connecté");		
+					user.update(
+						{_id:user._id},							//On met à jour l'id
+						{$set:{lastLogin : Date.now()} },		//On met à jour la dernière date de connexion (ne fonctionne pas)
+						function(){
+							res.redirect('/index');						//On retourne vers la page index_connected
+						});
+					}
+			}else{												//S'il y a une erreur
+				res.redirect('/index_default?404=error');
+				}
+			}
+		);
+	} else {													//Si ce n'est pas un email
+		res.redirect('/index_default?404=error');				
 	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/css"});
-		res.write(file);
-		res.end();
-	}
-	})
 };
 
-exports.imagesIdentite = function(req,res){
-	fs.readFile("./public/images/identite.jpg","binary",function(error,file){
-	if(error){
-		console.log("ERREUR pr imagesNode");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"image/jpeg"});
-		res.write(file,"binary");
-		res.end();
-	}
-	})
+/*	Se déconnecter	*/
+exports.doLogout = function (req, res) {
+	console.log(req.session.user);
+	req.session.loggedIn = false;
+	console.log(req.session.user.mail + " s'est déconnecté");
+	res.redirect('/index');
 };
 
-exports.jscolor = function(req,res){
-	console.log("une requete pr jscolor");
-	fs.readFile("./public/javascripts/jscolor/jscolor.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.tinymce = function(req,res){
-	console.log("une requete pr tinymce");
-	fs.readFile("./public/javascripts/tinymce/tinymce.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.identiteJs = function(req,res){
-	console.log("une requete pr le js d'identite");
-	fs.readFile("./public/javascripts/accueil.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.identiteTraitement = function(req,res){
-	console.log("une requete pr le js traitement d'identite");
-	console.log("que faire ?");
-};
-
-exports.projet = function(req, res){
-	console.log("une requete pr projet");
-	res.render('projet.ejs', function(err,html){
-		var data={
-		title: 'Projet',
-		body: html
-		};
-	res.render('default.ejs', data);
-		});
-};
-
-exports.projetCss = function(req,res){
-	console.log("une requete pr le css de projet");
-	fs.readFile("./public/stylesheets/projet.css","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/css"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.canvas = function(req,res){
-	console.log("une requete pr canvas");
-	fs.readFile("./public/javascripts/canvas.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.montageMp4 = function(req,res){
-	console.log("une requete pr mp4");
-	fs.readFile("./public/videos/Montage.mp4","binary",function(error,file){
-	if(error){
-		console.log("ERREUR pr video mp4");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"video/mp4"});
-		res.write(file,"binary");
-		res.end();
-	}
-	})
-};
-
-exports.montageMov = function(req,res){
-	console.log("une requete pr mov");
-	fs.readFile("./public/videos/Montage.mov","binary",function(error,file){
-	if(error){
-		console.log("ERREUR pr video mov");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"video/mov"});
-		res.write(file,"binary");
-		res.end();
-	}
-	})
-};
-
-exports.projetJs = function(req,res){
-	console.log("une requete pr projet js");
-	fs.readFile("./public/javascripts/projet.js","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/js"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-
-exports.recherche = function(req, res){
+/*	*********
+	RECHERCHE
+	*********	*/
+	
+/* Page recherche non-connecté */
+exports.recherche_default = function(req, res){	// appel du formulaire de recherche avec le rendu
 	console.log("une requete pr recherche");
-	res.render('recherche.ejs', function(err,html){
+	res.render('recherche', function(err,html){
 		var data={
 		title: 'Recherche',
 		body: html
 		};
-	res.render('default.ejs', data);
-		});
+		res.render('default', data);
+	});
 };
 
-exports.rechercheCss = function(req,res){
-	console.log("une requete pr le css de recherche");
-	fs.readFile("./public/stylesheets/recherche.css","utf8",function(error,file){
-	if(error){
-		console.log("ERREUR");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"text/css"});
-		res.write(file);
-		res.end();
-	}
-	})
-};
-
-exports.imgProjet = function(req,res){
-	fs.readFile("./public/images/imgProjet.jpg","binary",function(error,file){
-	if(error){
-		console.log("ERREUR pr imgProjet");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"image/jpeg"});
-		res.write(file,"binary");
-		res.end();
-	}
-	})
-};
-
-exports.imgPersonne = function(req,res){
-	fs.readFile("./public/images/imgPersonne.png","binary",function(error,file){
-	if(error){
-		console.log("ERREUR pr imgPersonne");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"image/png"});
-		res.write(file,"binary");
-		res.end();
-	}
-	})
-};
-
-exports.logo = function(req,res){
-	fs.readFile("./public/images/logo.png","binary",function(error,file){
-	if(error){
-		console.log("ERREUR pr logo");
-		res.writeHead(404,{"Content-Type":"text/plain"});
-		res.write("404 NOT FOUND");
-		res.end();
-	}
-	else{
-		res.writeHead(200,{"Content-Type":"image/png"});
-		res.write(file,"binary");
-		res.end();
-	}
-	})
-};
-
-exports.index_default = function(req, res){
-	console.log("une requete pr /");
-	res.render('index.ejs', function(err,html){
+/* Page recherche connecté */
+exports.recherche_connected = function(req, res){	// appel du formulaire de recherche avec le rendu
+	console.log("une requete pr recherche");
+	res.render('recherche', function(err,html){
 		var data={
-		title: 'Accueil',
+		title: 'Recherche',
 		body: html
 		};
-	res.render('default.ejs', data);
-		});
+		res.render('connected', data);
+	});
 };
+
+/* Fonction qui fait la recherche de projets */
+exports.recherche_projet_Traitement = function(req, res){
+	console.log("une requete pr traiter la recherche de projets et renvoyer les résultats");
+	
+};
+
+/* Fonction qui fait la recherche de personnes */
+exports.recherche_personne_Traitement = function(req, res){
+	console.log("une requete pr traiter la recherche de personnes et renvoyer les résultats");
+	var Users = userSchema.User.find({
+		competences: req.body.competences,
+		area : req.body.area,
+		interests: req.body.interests
+		})
+};
+

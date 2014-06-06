@@ -9,7 +9,6 @@
  * @link    http://jscolor.com
  */
 
-
 var jscolor = {
 
 
@@ -983,7 +982,7 @@ var jscolor = {
 		// require images
 		switch(modeID) {
 			case 0: jscolor.requireImage('hs.png'); break;
-			case 1: jscolor.requireImage('hv.png'); break;
+			case 1: jscolor.requireImage('hv.png'); break;			
 		}
 		jscolor.requireImage('cross.gif');
 		jscolor.requireImage('arrow.gif');

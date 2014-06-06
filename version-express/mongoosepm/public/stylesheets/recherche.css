@@ -15,7 +15,7 @@ input[type="search"] {
 	/* Reste de la page*/
 article{
 	width: 880px;
-	height : 350px;
+	height : 430px;
 	margin : 20px;
 	border : solid 1px;
 	background-color: rgba(225,225,225,1);
@@ -25,6 +25,10 @@ article{
 article h1 {
 	margin : auto;
 	padding-top: 10px;
+	text-align: center;
+}
+article h2 {
+	font-size : 1em;
 }
 
 
@@ -46,8 +50,7 @@ article h1 {
 	margin: 10px 0px;
 }
 
-#theme {
-	float:left;
+.theme {
 	padding: 0px 20px;
 	border-right:inset rgba(200,200,200,1);
 }
@@ -73,18 +76,33 @@ article h1 {
 	width : 150px;
 }
 
-
-
 #autre_filtre {
 	float: right;
 	padding: 0px 20px;
 }
 
-#autre_filtre canvas {
-	margin : auto;
+#lieu li {
+	width : 45%;
+	display : inline-block;
+}
+#lieu select {
+	width : 150px;
+}
+#competence {
+	height : 30%;
 }
 
+#competence li {
+	width : 45%;
+	vertical-align : top;
+	display : inline-block;
+}
 
+#competence select {
+	width : 150px;
+}
+ 
+ 
 	/*Recherche personne*/
 	
 #personne {
@@ -92,9 +110,63 @@ article h1 {
 	display : none;
 }
 
+#personne ul{
+	padding: 0px;
+	list-style-type: none; 
+}
+
 #personne li {
 	display : inline-block;
 	width : 345px;
+	overflow : hidden;
+	margin: 10px 0px;
+}
+
+.centre_interet {
+	padding: 0px 20px;
+	border-right:inset rgba(200,200,200,1);
+}
+
+#interet_ligne2 {
+	height : 30%;
+}
+
+#interet_ligne2 li {
+	width : 45%;
+}
+
+#interet_ligne3 {
+	height : 30%;
+}
+
+#interet_ligne3 li {
+	width : 45%;
+	vertical-align : top;
+}
+
+#interet_ligne3 select {
+	width : 150px;
+}
+
+#lieu_personne li {
+	width : 45%;
+	display : inline-block;
+}
+#lieu_personne select {
+	width : 150px;
+}
+#competence_personne {
+	height : 30%;
+}
+
+#competence_personne li {
+	width : 45%;
+	vertical-align : top;
+	display : inline-block;
+}
+
+#competence_personne select {
+	width : 150px;
 }
 
 	/*aside*/

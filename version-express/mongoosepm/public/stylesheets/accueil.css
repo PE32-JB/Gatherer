@@ -44,7 +44,7 @@ section{
 	text-align: center;
 	font-size: 2em;
 	font-weight: bold;
-	color: green;
+	color: black;
 }
 
 .ligne li{
@@ -58,9 +58,13 @@ section{
 .image{
 	margin:auto;
 	width:150px;
+	height : 120px;
 	max-height: 180px;
 	z-index : 3;
 	overflow : hidden;
+	backface-visibility: hidden;
+	-webkit-backface-visibility :hidden;
+	transition : all 400ms 100ms;
 }
 
 .image img:hover {
@@ -69,10 +73,8 @@ section{
 }
 
 .text {
-	/*position : absolute;*/
 	width: 150px;
 	height : 43px;
-		margin : -5px 0px 0px 0px;
 	font-size: 13px;
 	z-index : 4;
 	border-radius :2px 2px 0px 0px;
@@ -85,17 +87,6 @@ section{
 	padding: 10px 0px;
 	text-align: center;
 }
-
-
-.text p {
-	background-color: #ffffff;
-	padding-top: 10px;
-	height : 60px;
-	display : none;
-}
-
-
-
 
 	/* Titre et onglets*/
 
