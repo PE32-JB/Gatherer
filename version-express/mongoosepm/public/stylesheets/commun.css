@@ -76,7 +76,7 @@ nav {
 	box-shadow: 0px 0px 10px 5px rgba(119, 119, 119, 0.7);				
 }
 
-#recherche {
+.recherche {
 	width: 120px;
 	margin : 0px 0px 0px 15px;
 }

@@ -193,3 +193,9 @@ aside li img {
 	margin: 5px 2px;
 	vertical-align : bottom;
 }
+
+/* Bouton */
+button {
+	display : block;
+	margin : auto;
+}

@@ -74,7 +74,7 @@ $("#annuler").click(function() {
 $(".new").click(function() {
 	var name_explosed = $(this).attr('id').split('-');	
 	var id_annonce = name_explosed[1];
-	$('<input></input>').insertAfter('#output-'+id_annonce).addClass("input-"+id_annonce);
+	$('<input></input>').insertAfter('#output-'+id_annonce).addClass("input-"+id_annonce).addClass("input");	//La deuxième classe est pour le style
 });
 
 /*	Soumettre un formulaire	*/
@@ -89,7 +89,7 @@ $("#Submit").click(function() {
 		var name_explosed = $(this).attr('id').split('-');
 		var id_annonce = name_explosed[1];
 		var y=[];		//on crée un array vide qui contiendra les utilisateurs, ...
-		$(".input-"+id_annonce).each(function(){	//pour chaque input
+		$(".input-"+id_annonce).each(function(){	//pour chaque input (remarque : c'est important que ce soit une classe pour en mettre plusieurs
 			var x=$(this).val();		//on récupère sa valeur
 			y.push(x);				//on l'ajoute au tableau
 		});		

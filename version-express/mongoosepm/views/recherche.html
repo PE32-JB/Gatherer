@@ -13,7 +13,7 @@
 		<!-- Barre de recherche : projet -->
 	<ul id="projet">
 		<h1> Rechercher un projet </h1>
-		<form name="input" action="recherche_projet_Traitement" method="post">	<!-- Fromulaire de recherche par projet -->
+		<form name="project" action="" method="post">	<!-- Fromulaire de recherche par projet -->
 		
 		<!-- Zone de gauche -->
 		<li class="theme">	
@@ -124,6 +124,7 @@
 				</li>
 			</ul>
 		</li>
+		<button type='submit'>Submit</button>
 		</form>
 	</ul>		
 	
@@ -132,7 +133,7 @@
 		
 	<ul id="personne">
 		<h1> Rechercher quelqu'un </h1>
-		<form name="input" action="recherche_personne_Traitement" method="post">	<!-- Fromulaire de recherche par projet -->
+		<form name="user" action="" method="post">	<!-- Fromulaire de recherche par projet -->
 		
 		<!-- Zone de gauche -->
 		<li class="centre_interet">	
@@ -243,9 +244,15 @@
 				</li>
 			</ul>
 		</li>
+		<button type='submit'>Submit</button>
 		</form>
 	</ul>
 </article>
+<ul id='liste'>
+	<!-- Ici on accueil les projets et les utilisateurs recherchés-->
+</ul>
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script src="/public/javascripts/recherche.js"></script>

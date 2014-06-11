@@ -34,4 +34,15 @@ projectSchema.statics.findByUserID = function (userid, callback) {
 		callback);
 };
 
+projectSchema.statics.findByName = function (tag, callback) {
+	this.find({ projectName : tag },{sort: 'modifiedOn'}, callback);
+};
+
+projectSchema.statics.findByProjectID = function (projectId, callback) {
+	this.find(					//On cherche un projet
+		{ _id : projectId },	//Dont le créateur est userid
+		'_id projectName',		//On récupère un tableau d'instance de projets avec _id et nom du projet
+		{sort: 'modifiedOn'},	//On les tri par date de modification
+		callback);
+};
 exports.Project = mongooseProject.model('Project', projectSchema);	// exportation du modèle pour pouvoir l'utiliser

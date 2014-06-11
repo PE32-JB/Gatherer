@@ -6,7 +6,14 @@ var fs=require("fs");
 var userSchema = require('../model/userSchema'); // appel du modèle mongoose utilisateur 
 var projectSchema = require('../model/projectSchema'); // appel du modèle mongoose projet
 
-
+/*	*********
+	FONCTIONS
+	*********	*/
+/*	Fonction qui regarderait si on est connecté aavant de choisir le layout	*/	
+function isLogged() {
+	if(req.session.loggedIn === true) {res.render('connected', data);}		//S'il est loggé on rend connected
+	else {res.render('default', data);}										//S'il est pas loggé on rend default
+};
 
 /*	**************
 	A LA CONNEXION
@@ -33,11 +40,12 @@ exports.index_default = function(req, res){ // appel de la page index lorsqu'on 
 exports.index_connected = function(req, res){	// appel de la page index lorsqu'on est connecté
 	console.log("une requete pr /");
 	res.render('index', {user:req.session.user, userID: req.session.user._id}, function(err,html){	// on récupère les infos de l'utilisateur connecté et ouvre la page
-		var data={
+		var data_connected={
 		title: 'Accueil',
-		body: html
+		body: html,
+		user:req.session.user
 		};
-	res.render('connected', data);	// 2nd rendu en appelant le layout correspondant au profil connecté appelé en callback
+	res.render('connected', data_connected);	// 2nd rendu en appelant le layout correspondant au profil connecté appelé en callback
 		});
 };
 
@@ -84,35 +92,53 @@ exports.doLogout = function (req, res) {
 /*	*********
 	RECHERCHE
 	*********	*/
-	
-/* Page recherche non-connecté */
-exports.recherche_default = function(req, res){	// appel du formulaire de recherche avec le rendu
-	console.log("une requete pr recherche");
-	res.render('recherche', function(err,html){
-		var data={
-		title: 'Recherche',
-		body: html
-		};
-		res.render('default', data);
-	});
+/*	Afficher la page recherche	*/
+exports.recherche = function(req, res) {
+	console.log("ouverture de la page recherche");
+	res.render('recherche', {users: req.users, projects: req.projects}, function(err, html){	//Les données de user sont dans la session
+		var data = {
+				title: "Recherche",
+				body: html
+			};
+		var data_connected = {
+				title: "Recherche",
+				body: html,
+				user:req.session.user
+			};
+			if(req.session.loggedIn === true) {res.render('connected', data_connected);}		//S'il est loggé on rend connected
+			else {res.render('default', data);}
+		});
+	console.log('req.projects '+req.projects);
 };
 
-/* Page recherche connecté */
-exports.recherche_connected = function(req, res){	// appel du formulaire de recherche avec le rendu
-	console.log("une requete pr recherche");
-	res.render('recherche', function(err,html){
-		var data={
-		title: 'Recherche',
-		body: html
-		};
-		res.render('connected', data);
-	});
-};
-
-/* Fonction qui fait la recherche de projets */
-exports.recherche_projet_Traitement = function(req, res){
-	console.log("une requete pr traiter la recherche de projets et renvoyer les résultats");
-	
+/*	On vérifie qu'on a un projet recherché	*/
+exports.rechercheProject = function(req, res) {
+	console.log("Page de recherche avec les projets : " + req.params.projectId);
+	if(req.params.projectId) {		//si on a bien un id en paramêtre dans l'url
+		projectSchema.Project.findById(req.params.projectId, function(err, projectListe) {	//On cherche le projet avec cet Id
+			if(err)	{
+				console.log(err);
+				res.redirect('/search?404=project');
+			}else {
+				console.log(projectListe);
+				res.render('recherche', {projects: projectListe}, function(err,html){	//on renvoie la page projet
+					var data={
+					title: "Recherche",
+					body: html
+					};
+					var data_connected = {
+					title: "Recherche",
+					body: html,
+					user:req.session.user
+					};
+					if(req.session.loggedIn === true) {res.render('connected', data_connected);}		//S'il est loggé on rend connected
+					else {res.render('default', data);}
+					});
+				}
+		});
+	} else {			//Si on a pas d'id en paramêtre
+		res.redirect('/recherche');
+	}
 };
 
 /* Fonction qui fait la recherche de personnes */

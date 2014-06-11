@@ -13,6 +13,17 @@ var fs=require("fs");
 var userSchema = require('../model/userSchema');
 var crypto = require("crypto");
 	
+	
+/*	*********
+	FONCTIONS
+	*********	*/
+/*	Fonction qui regarderait si on est connecté aavant de choisir le layout	*/	
+function isLogged() {
+	if(req.session.loggedIn === true) {res.render('connected', data);}		//S'il est loggé on rend connected
+	else {res.render('default', data);}										//S'il est pas loggé on rend default
+};
+	
+	
 /*	***************
 	CREER UN COMPTE
 	***************	*/
@@ -24,7 +35,7 @@ exports.identite_formulaire = function(req, res){	// Génération du formulaire
 		title: 'Mon Profil',
 		body: html
 		};
-		res.render('default', data);
+		{res.render('default', data);}
 	});
 };
 
@@ -71,7 +82,13 @@ exports.identite_statique = function(req, res) {
 				title: "Mon Profil",
 				body: html
 			};
-			res.render('connected', data);	// 2nd rendu en appelant le layout (ici connecté)
+			var data_connected = {
+			title: "Mon Profil",
+			body: html,
+			user:req.session.user
+			};
+			if(req.session.loggedIn === true) {res.render('connected', data_connected);}		//S'il est loggé on rend connected
+			else {res.render('default', data);}
 		});
 };
 
@@ -87,8 +104,58 @@ exports.identite_modification = function(req, res){	// fonction de modification 
 exports.identite_suppression = function(req, res){	// fonction de suppression du compte -> à relier au bouton supprimer mon compte de la page identite
 };
 
+/*	*********************
+	RECHERCHE UTILISATEUR
+	*********************	*/
+	
+/*	Rechercher un utilisateur à partir de son nom	*/
+exports.doSearchUser = function(req, res) {
+	console.log("Chercher un utilisateur avec le nom "+req.body.tag);
+	if(req.body.tag) {
+		userSchema.User.findByName(req.body.tag, function(err, userNom) {
+			if(err){
+				console.log(err);
+				res.redirect('/recherche/?404=user');
+			}else{
+				console.log(userNom);
+				req.users = userNom[0].id;	//On enregiste la liste d'utilisateurs pour l'envoyer dans le res.render 'recherche'
+				res.redirect('/user/'+req.users);
+			}
+		});
+	}else{
+		res.redirect('/recherche');
+	}
+};
 
-
+/*	Ouvrir une page à partir de l'id de l'utilisateur	*/
+exports.user = function(req,res) {
+	console.log("Cherche le projet_id : " + req.params.id);
+	if(req.params.id) {		//si on a bien un id en paramêtre dans l'url
+		userSchema.User.findById(req.params.id, function(err, userInfo) {	//On cherche le projet avec cet Id
+			if(err)	{
+				console.log(err);
+				res.redirect('/user?404=user');
+			}else {
+				console.log(userInfo);
+				res.render('identite_statique', {user: userInfo}, function(err,html){	//on renvoie la page projet
+					var data={
+					title: userInfo.userFirstName + " " + userInfo.userLastName,
+					body: html
+					};
+					var data_connected = {
+					title: userInfo.userFirstName + " " + userInfo.userLastName,
+					body: html,
+					user:req.session.user
+					};
+					if(req.session.loggedIn === true) {res.render('connected', data_connected);}		//S'il est loggé on rend connected
+					else {res.render('default', data);}
+					});
+				}
+		});
+	} else {			//Si on a pas d'id en paramêtre
+		res.redirect('/');	//on renvoie la page d'accueil
+	}
+};
 /* ******************************* 
    SUPPRIMER TOUS LES UTILISATEURS
    ******************************* */

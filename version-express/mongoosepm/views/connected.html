@@ -19,7 +19,11 @@
 	
 	<div id="barre">
 		<ul>
+			<% if (user.userFirstName === "Aymeric") {%>
+			<li><a href="/projet_gatherer"><img src="/public/images/logo_aymeric.png" alt="" /></a></li>
+			<% } else {%>
 			<li><img src="/public/images/logo.png" alt="" /></li>
+			<% }%>
 			<li><img src="/public/images/logo.png" alt="" /></li>
 			<li><img src="/public/images/logo.png" alt="" /></li>
 			<li><img src="/public/images/logo.png" alt="" /></li>
@@ -31,7 +35,7 @@
 	
 		<nav>
 			<div class="bloc_nav">
-				<h3> Gatherer </h3>
+				<h3> <%= user.userFirstName %> </h3>
 				<ul>
 					<li class="liste"> <a href="/index"> Accueil </a> </li>
 					<li class="liste"> <a href="/projets_liste"> Mes projets </a> </li>
@@ -42,22 +46,26 @@
 						<li> <input class="color" value="66ff00" onchange="color2=this.color.toString(); updateGradient()"/></li>
 						</div>
 					<li class="liste"> <a href="/doLogout"> Se déconnecter </a> </li>
-					<li class="liste"> <a href=""> Options </a> </li>			
+					<li class="liste"> <a href=""> Options </a> </li>	
+										
 				</ul>
-				<form name="input" action="/recherche_connected" method="get">	
-							<input type="search" name="recherche" id="recherche">
-							<input type="submit" value="Rechercher">
-						</form> 
-			</div>
-			
+				
+
+			</div>					
 			<div class="bloc_nav">
-				<div id="chatroom">
-					<div id="messages">
-					</div>
-					<input id="message" type="text" placeholder="Entrez message">
-					<input id="send" type="button" value="Envoyer">
-				</div>
-			</div>
+				<h3> Recherche </h3>
+				<ul>
+					<li class="liste"> <a href="/recherche"> Recherche avancée </a> </li>
+					<form name="recherche" action="/doSearchProject" method="post">	
+						<li class="liste"><input type="search" name="tag" class="recherche"> </li>
+						<li class="liste"><button type="submit">Rechercher projet</button> </li>
+					</form>
+					<form name="recherche" action="/doSearchUser" method="post">
+						<li class="liste"><input type="search" name="tag" class="recherche"> </li>
+						<li class="liste"><button type="submit">Rechercher utilisateur</button> </li>
+					</form> 
+				</ul>
+			</div>	
 			
 		</nav>
 		<section>

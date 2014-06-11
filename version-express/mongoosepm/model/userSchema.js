@@ -48,6 +48,10 @@ userSchema.methods.speak = function () {		// Méthode propre à inscritSchema
 	console.log(greeting);
 };
 
+userSchema.statics.findByName = function (tag, callback) {
+	this.find({ userFirstName : tag },{sort: 'modifiedOn'}, callback);
+};
+
 
 /*	*****
 	MODEL
